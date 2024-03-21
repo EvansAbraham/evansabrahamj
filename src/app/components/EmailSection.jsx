@@ -84,7 +84,7 @@ const EmailSection = () => {
                 id="email"
                 required
                 className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
-                placeholder="john-doe@example.com"
+                placeholder="johndoe@example.com"
               />
             </div>
             <div className="mb-6">
@@ -119,7 +119,7 @@ const EmailSection = () => {
             </div>
             <button
               type="submit"
-              className="bg-[#8A2BE2] hover:bg-[#FFD700] text-white font-medium py-2.5 px-5 rounded-lg w-full"
+              className="bg-gradient-to-br from-[#FFD700] via-[#8A2BE2] to-[#4169E1] hover:bg-gradient-to-br hover:from-[#4169E1] hover:via-[#8A2BE2] hover:to-[#FFD700] text-white font-medium py-2.5 px-5 rounded-lg w-full"
             >
               Send Message
             </button>
