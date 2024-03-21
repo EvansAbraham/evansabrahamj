@@ -5,14 +5,14 @@ import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
 
 const projectsData = [
-  
+
     {
       id: 1,
       title: "Angular News Application",
       description: "Web based news application built using Angular and NewsAPI",
       image: "/assets/projects/1.png",
       tag: ["All", "Web"],
-      gitUrl: "/",
+      gitUrl: "https://github.com/EvansAbraham/my-news-app",
       previewUrl: "/",
     },
     {
@@ -21,7 +21,7 @@ const projectsData = [
       description: "Event Organizing web application built using NextJS framework Clerk and Stripe",
       image: "/assets/projects/2.png",
       tag: ["All", "Web"],
-      gitUrl: "/",
+      gitUrl: "https://github.com/EvansAbraham/cloudus",
       previewUrl: "/",
     },
     {
@@ -30,7 +30,7 @@ const projectsData = [
       description: "Saas Website Builder that is used for  creating custom websites without coding.",
       image: "/assets/projects/3.png",
       tag: ["All", "Web"],
-      gitUrl: "/",
+      gitUrl: "https://github.com/EvansAbraham/tagsblock",
       previewUrl: "/",
     },
     {
@@ -39,7 +39,7 @@ const projectsData = [
       description: "Machine Leaning model built using R to predict stroke.",
       image: "/assets/projects/4.png",
       tag: ["All", "DS/DA"],
-      gitUrl: "/",
+      gitUrl: "https://github.com/EvansAbraham/R-Notebooks/blob/main/Stroke%20Prediction%20Model%20using%20R/Stroke%20prediction%20model%20using%20R.pdf",
       previewUrl: "/",
     },
     {
@@ -48,7 +48,7 @@ const projectsData = [
       description: "Performed Time Series Analysis of Power Consumption in India (2019 - 2020) using Python",
       image: "/assets/projects/5.png",
       tag: ["All", "DS/DA"],
-      gitUrl: "/",
+      gitUrl: "https://github.com/EvansAbraham/DataScience-Projects/blob/main/Time%20Series%20Forecasting/time_series_forecasting.ipynb",
       previewUrl: "/",
     },
 ]
