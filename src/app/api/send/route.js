@@ -1,27 +1,38 @@
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export async function POST(req, res) {
+export async function POST(req) {
   const { email, subject, message } = await req.json();
-  console.log(email, subject, message);
+
+  // Create a transporter object using Gmail SMTP
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST, // smtp.gmail.com
+    port: process.env.SMTP_PORT, // 587
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: process.env.SMTP_USER, // your-email@gmail.com
+      pass: process.env.SMTP_PASS, // your Gmail password or app password
+    },
+  });
+
   try {
-    const data = await resend.emails.send({
-      from: fromEmail,
-      to: [fromEmail, email],
+    const info = await transporter.sendMail({
+      from: process.env.SMTP_USER, // Your email address (authenticated)
+      to: process.env.SMTP_USER, // Your email address (where you receive messages)
       subject: subject,
-      react: (
-        <>
-          <h1>{subject}</h1>
-          <p>Thank you for contacting us!</p>
-          <p>New message submitted:</p>
-          <p>{message}</p>
-        </>
-      ),
+      html: `
+        <h1>${subject}</h1>
+        <p>New message from: ${email}</p>
+        <p>Message:</p>
+        <p>${message}</p>
+      `,
+      replyTo: email, // Set the reply-to to the recruiter's email
     });
-    return NextResponse.json(data);
+
+    console.log("Message sent: %s", info.messageId);
+    return NextResponse.json({ message: "Email sent successfully!" });
   } catch (error) {
-    return NextResponse.json({ error });
+    console.error("Error sending email:", error);
+    return NextResponse.json({ error: "Failed to send email." });
   }
 }
